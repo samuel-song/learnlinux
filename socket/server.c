@@ -15,7 +15,8 @@
 int main(int ac, char * av[]){
 	struct sockaddr_in saddr;
 	struct hostent *hp;
-	char hostname[HOSTLEN]="10.211.55.4";
+	/*char hostname[HOSTLEN]="10.211.55.4";*/
+	char hostname[HOSTLEN];
 	int sock_id,sock_fd;
 	FILE *sock_fp;
 	char *ctime();
@@ -26,7 +27,7 @@ int main(int ac, char * av[]){
 		oops("socket!");
 	}
 	bzero((void *)&saddr,sizeof(saddr));
-	/*gethostname(hostname,HOSTLEN);*/
+	gethostname(hostname,HOSTLEN);
 	
 	hp = gethostbyname(hostname);
 	/*bcopy((void *)hp->h_addr,(void *)&saddr.sin_addr,hp->h_length);*/
